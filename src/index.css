@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Lora Variable', Georgia, serif;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --color-forest-950: #13260f;
+  --color-forest-900: #1b3417;
+  --color-forest-800: #24461f;
+  --color-forest-700: #2f5a28;
+  --color-forest-600: #3d7134;
+  --color-leaf-500: #6a9a4f;
+  --color-leaf-300: #a8d38f;
+  --color-leaf-100: #e3f0d6;
+  --color-cream-50: #fcfaf5;
+  --color-cream-100: #f8f3e9;
+  --color-cream-200: #f1e7d6;
+  --color-cream-300: #e6d6bc;
+  --color-clay-500: #c4682d;
+  --color-clay-600: #a9551f;
+  --color-soil-700: #6b3f1f;
+  --color-ink: #26231d;
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes sway {
+    0%,
+    100% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(4deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-cream-100);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--color-leaf-300);
+    color: var(--color-forest-900);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-clay-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Film-grain overlay: a fixed SVG-noise layer that gives flat colour a printed, earthy feel. */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Diagonal furrow pattern used for farm beds. */
+.furrows {
+  background-image: repeating-linear-gradient(
+    -12deg,
+    rgb(0 0 0 / 0.06) 0 2px,
+    transparent 2px 12px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-spin-slow,
+  .animate-sway {
+    animation: none;
+  }
+}
