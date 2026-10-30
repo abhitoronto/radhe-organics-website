@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { INSTAGRAM_URL, NAV_LINKS, WAITLIST_FORM_URL } from '../data'
+import { asset, INSTAGRAM_URL, NAV_LINKS, WAITLIST_FORM_URL } from '../data'
 import { EASE } from '../motion'
 
 export function Footer() {
@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-10 sm:flex-row">
           <div>
-            <img src="/img/logo.png" alt="Radhe Organics" className="w-40" />
+            <img src={asset('img/logo.png')} alt="Radhe Organics" className="w-40" />
             <p className="mt-4 max-w-xs text-sm text-cream-200/60">
               Winter Harvest Subscription 2026–27. A dedicated mini farm for you, managed by us. Baddowal, Ludhiana.
             </p>

@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { ArrowUpRight, MapPin, Phone } from 'lucide-react'
 import {
   ADDRESS,
+  asset,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   LOCATION_URL,
@@ -45,7 +46,7 @@ export function Book() {
                 className="hidden w-52 rotate-[-3deg] rounded-3xl bg-white p-4 shadow-2xl transition-transform duration-500 hover:rotate-0 md:block"
                 aria-label="Waitlist form QR code"
               >
-                <img src="/img/qr-waitlist.png" alt="QR code linking to the Radhe Organics waitlist form" className="w-full" />
+                <img src={asset('img/qr-waitlist.png')} alt="QR code linking to the Radhe Organics waitlist form" className="w-full" />
                 <p className="mt-2 text-center text-[0.65rem] font-semibold tracking-[0.2em] text-forest-800 uppercase">
                   Scan to join
                 </p>
@@ -123,7 +124,7 @@ export function Book() {
               rel="noopener noreferrer"
               className="group flex h-full items-center gap-6 rounded-[2rem] border border-forest-800/10 bg-white p-6"
             >
-              <img src="/img/qr-location.png" alt="QR code with directions to the farm" className="w-28 shrink-0 rounded-xl sm:w-32" />
+              <img src={asset('img/qr-location.png')} alt="QR code with directions to the farm" className="w-28 shrink-0 rounded-xl sm:w-32" />
               <div>
                 <p className="font-serif text-2xl font-semibold text-forest-800">Farm location</p>
                 <p className="mt-1 text-sm text-ink/65">Scan for directions and come see your farm.</p>

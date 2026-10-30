@@ -1,3 +1,6 @@
+/** Resolves a file in public/ against the deploy base path (e.g. /radhe-organics-website/ on GitHub Pages). */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
 export const WAITLIST_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSeBLb8dglpulu8sY6JkWU5ZmDutrUFch4GF5a4gLCO33RnJsQ/viewform?usp=header'
 export const WAITLIST_FORM_DISPLAY =
@@ -163,16 +166,16 @@ export const FAQS = [
 ]
 
 export const GALLERY = [
-  { src: '/img/farm-1.jpg', caption: 'Little hands, first bananas', w: 562 },
-  { src: '/img/farm-2.jpg', caption: 'Fresh turmeric, just dug up', w: 800 },
-  { src: '/img/farm-3.jpg', caption: 'Picking amla off the branch', w: 800 },
-  { src: '/img/farm-4.jpg', caption: 'Weeding by hand, never by spray', w: 800 },
-  { src: '/img/farm-5.jpg', caption: 'The banana walk', w: 800 },
-  { src: '/img/farm-6.jpg', caption: 'Winter beds, freshly laid', w: 562 },
-  { src: '/img/farm-7.jpg', caption: 'New shoots under the trees', w: 562 },
-  { src: '/img/farm-8.jpg', caption: 'The people who tend your farm', w: 562 },
-  { src: '/img/farm-9.jpg', caption: 'Water channels feeding every bed', w: 562 },
-  { src: '/img/farm-10.jpg', caption: 'Soil ready for winter sowing', w: 800 },
+  { src: asset('img/farm-1.jpg'), caption: 'Little hands, first bananas', w: 562 },
+  { src: asset('img/farm-2.jpg'), caption: 'Fresh turmeric, just dug up', w: 800 },
+  { src: asset('img/farm-3.jpg'), caption: 'Picking amla off the branch', w: 800 },
+  { src: asset('img/farm-4.jpg'), caption: 'Weeding by hand, never by spray', w: 800 },
+  { src: asset('img/farm-5.jpg'), caption: 'The banana walk', w: 800 },
+  { src: asset('img/farm-6.jpg'), caption: 'Winter beds, freshly laid', w: 562 },
+  { src: asset('img/farm-7.jpg'), caption: 'New shoots under the trees', w: 562 },
+  { src: asset('img/farm-8.jpg'), caption: 'The people who tend your farm', w: 562 },
+  { src: asset('img/farm-9.jpg'), caption: 'Water channels feeding every bed', w: 562 },
+  { src: asset('img/farm-10.jpg'), caption: 'Soil ready for winter sowing', w: 800 },
 ]
 
 export const formatINR = (n: number) => n.toLocaleString('en-IN')

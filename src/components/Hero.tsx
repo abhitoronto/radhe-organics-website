@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react'
 import { CalendarRange, LayoutGrid, Sprout, Truck } from 'lucide-react'
 import { useRef } from 'react'
+import { asset } from '../data'
 import { EASE } from '../motion'
 import { WaitlistButton } from './ui'
 
@@ -30,7 +31,7 @@ export function Hero() {
     <section ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden bg-forest-900 text-cream-50">
       <motion.div style={{ scale: imgScale, y: imgY }} className="absolute inset-0">
         <motion.img
-          src="/img/hero-farm.jpg"
+          src={asset('img/hero-farm.jpg')}
           alt="Rows of winter vegetables growing at the Radhe Organics farm in Ludhiana"
           className="size-full object-cover"
           initial={{ opacity: 0, filter: 'blur(12px)' }}
@@ -46,7 +47,7 @@ export function Hero() {
         className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pt-28 pb-8 sm:px-8 sm:pb-10"
       >
         <motion.img
-          src="/img/logo.png"
+          src={asset('img/logo.png')}
           alt="Radhe Organics — Pure soil. Pure you."
           className="mb-6 w-36 drop-shadow-[0_4px_20px_rgb(0_0_0/0.35)] sm:w-40"
           initial={{ opacity: 0, y: 20 }}

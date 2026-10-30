@@ -26,12 +26,27 @@ npm run build    # type-checks and writes the static site to dist/
 npm run preview  # serves dist/ at http://localhost:4173
 ```
 
-### Deploying
+### Live site (GitHub Pages)
 
-`dist/` is a plain static site, so any static host can serve it:
+The site is published at **https://abhitoronto.github.io/radhe-organics-website/**.
 
-- **Netlify / Cloudflare Pages / Vercel:** import the repo, set the build command to `npm run build` and the output directory to `dist`.
-- **Any web server or S3 bucket:** upload the contents of `dist/`.
+Every push to `main` runs `.github/workflows/deploy.yml`, which lints, builds and deploys to GitHub Pages. You can also redeploy by hand from the **Actions** tab → *Deploy to GitHub Pages* → *Run workflow*. One-time setup: in **Settings → Pages**, set *Source* to **GitHub Actions**.
+
+The workflow sets two build variables from the Pages config, so a custom domain also works without code changes:
+
+- `BASE_PATH`: the URL prefix the site is served under (`/radhe-organics-website/`). It defaults to `/` locally.
+- `VITE_SITE_URL`: the absolute site URL, used for the link-preview image on WhatsApp and Facebook. The local default is in `.env`.
+
+To preview the GitHub Pages build locally:
+
+```bash
+BASE_PATH=/radhe-organics-website/ npm run build
+BASE_PATH=/radhe-organics-website/ npm run preview   # http://localhost:4173/radhe-organics-website/
+```
+
+### Other hosts
+
+`dist/` is a plain static site. On Netlify, Cloudflare Pages or Vercel, import the repo, set the build command to `npm run build` and the output directory to `dist`. Set `VITE_SITE_URL` to the final URL.
 
 ## Editing content
 
